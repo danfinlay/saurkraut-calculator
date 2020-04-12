@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saurkraut Calculator</title>
+
+<script>
+
+window.addEventListener('load', () => {
+
+  submitButton.addEventListener('click', () => {
+    console.log('submit clicked')
+
+    const saurkrautGrams = saurkraut.valueAsNumber
+    console.log('typeof ' + typeof saurkrautGrams)
+    const saltGrams = (saurkrautGrams * 0.02).toFixed()
+    console.log('saltGrams', saltGrams)
+    render(`Add ${saltGrams}g of salt to ${saurkrautGrams}g of saurkraut.`)
+  })
+
+})
+
+function render (text) {
+  content.innerHTML = `<p>${text}</p>`
+}
+</script>
+
+</head>
+<body>
+  <h1>Saurkraut Calculator</h1>
+  <div id="content">
+    <p>Grams of Saurkraut</p>
+    <input type="number" id="saurkraut" placeholder="700"/><br>
+    <button id="submitButton">Calculate</button>
+  </div>
+</body>
+</html>
+
